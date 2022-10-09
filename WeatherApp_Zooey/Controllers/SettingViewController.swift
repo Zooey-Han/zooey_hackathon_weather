@@ -8,23 +8,22 @@
 import UIKit
 
 class SettingViewController: UIViewController, UITableViewDataSource {
-   
+    
     var settingArray: [Setting] = [
         Setting(settingImage: UIImage(systemName: "chevron.right"), settingLabel: "현재 위치"),
         Setting(settingImage: UIImage(systemName: "chevron.right"), settingLabel: "문의하기"),
         Setting(settingImage: UIImage(systemName: "chevron.right"), settingLabel: "개인정보 처리방침"),
-        Setting(settingImage: UIImage(systemName: "chevron.right"), settingLabel: "개발자 정보"),
+        Setting(settingImage: UIImage(systemName: "chevron.right"), settingLabel: "개발자 정보")
     ]
     
+    
     @IBOutlet weak var tableView: UITableView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.rowHeight = 60
-        
+        tableView.delegate = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,6 +39,14 @@ class SettingViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
-   
+}
 
+extension SettingViewController: UITableViewDelegate {
+    // 셀 선택시 다음 화면으로 넘어가기
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetail", sender: nil)
+        // 되돌아 갈때 셀 색상 해제
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
 }

@@ -35,7 +35,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAO-iV-PbY">
                                 <rect key="frame" x="140" y="488" width="95" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="확 인"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Ob-T4-Tu6"/>
                                     <segue destination="lsr-Bd-Wib" kind="show" id="Rhi-w3-3Ne"/>
@@ -160,7 +160,7 @@
         <!--지역 설정-->
         <scene sceneID="MSG-cN-T4p">
             <objects>
-                <viewController id="Hok-QR-cyk" customClass="LocationViewController" customModule="WeatherApp_Zooey" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hok-QR-cyk" customClass="SelectViewController" customModule="WeatherApp_Zooey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JXG-1z-GZV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -258,11 +258,76 @@
                     <navigationItem key="navigationItem" title="설정" style="editor" id="sLP-Vy-CEF"/>
                     <connections>
                         <outlet property="tableView" destination="T3W-SY-Fzq" id="mpE-GR-FrT"/>
+                        <segue destination="hvk-5s-gGU" kind="show" identifier="toDetail" id="5HF-qN-U39"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZI-t7-gi1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3029.2307692307691" y="182.70142180094786"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="i3O-LX-lb6">
+            <objects>
+                <viewController id="hvk-5s-gGU" customClass="LocationViewController" customModule="WeatherApp_Zooey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B4a-Ny-dlQ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 위치의 날씨를 확인하려면 동의가 필요해요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stD-Sk-kFy">
+                                <rect key="frame" x="10" y="106" width="370" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 위치 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7h-m3-0Ry">
+                                <rect key="frame" x="10" y="166.33333333333334" width="370" height="26.333333333333343"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   현재 위치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BM-5H-aEL">
+                                <rect key="frame" x="10" y="202.66666666666666" width="370" height="53"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="Lb6-oa-lDI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hko-M1-dEA">
+                                <rect key="frame" x="311" y="212.66666666666666" width="49" height="31"/>
+                                <connections>
+                                    <action selector="settingSwitch:" destination="hvk-5s-gGU" eventType="valueChanged" id="x2P-sP-k5i"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZMk-iA-ciP"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="ZMk-iA-ciP" firstAttribute="trailing" secondItem="z7h-m3-0Ry" secondAttribute="trailing" constant="10" id="1JH-Gv-CIj"/>
+                            <constraint firstItem="hko-M1-dEA" firstAttribute="leading" secondItem="ZMk-iA-ciP" secondAttribute="leading" constant="311" id="2SB-PN-bhc"/>
+                            <constraint firstItem="ZMk-iA-ciP" firstAttribute="trailing" secondItem="hko-M1-dEA" secondAttribute="trailing" constant="32" id="FNZ-eB-Xh3"/>
+                            <constraint firstItem="hko-M1-dEA" firstAttribute="top" secondItem="z7h-m3-0Ry" secondAttribute="bottom" constant="20" id="HMr-gG-RLv"/>
+                            <constraint firstItem="stD-Sk-kFy" firstAttribute="top" secondItem="ZMk-iA-ciP" secondAttribute="top" constant="15" id="Ing-wJ-FUP"/>
+                            <constraint firstItem="ZMk-iA-ciP" firstAttribute="trailing" secondItem="stD-Sk-kFy" secondAttribute="trailing" constant="10" id="Mei-im-1q6"/>
+                            <constraint firstItem="z7h-m3-0Ry" firstAttribute="top" secondItem="stD-Sk-kFy" secondAttribute="bottom" constant="40" id="WDL-uu-D36"/>
+                            <constraint firstItem="z7h-m3-0Ry" firstAttribute="leading" secondItem="ZMk-iA-ciP" secondAttribute="leading" constant="10" id="cCQ-f0-y4B"/>
+                            <constraint firstItem="ZMk-iA-ciP" firstAttribute="trailing" secondItem="0BM-5H-aEL" secondAttribute="trailing" constant="10" id="gbc-tC-IJi"/>
+                            <constraint firstItem="0BM-5H-aEL" firstAttribute="leading" secondItem="ZMk-iA-ciP" secondAttribute="leading" constant="10" id="kxY-lD-iPh"/>
+                            <constraint firstItem="stD-Sk-kFy" firstAttribute="leading" secondItem="ZMk-iA-ciP" secondAttribute="leading" constant="10" id="lbu-i0-D2Y"/>
+                            <constraint firstItem="0BM-5H-aEL" firstAttribute="top" secondItem="z7h-m3-0Ry" secondAttribute="bottom" constant="10" id="v42-sf-yMS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" style="editor" id="GRE-vG-yk5"/>
+                    <connections>
+                        <outlet property="locationLabel" destination="0BM-5H-aEL" id="Uuz-Vi-68Z"/>
+                        <outlet property="settingSwitch" destination="hko-M1-dEA" id="Iz6-fP-nQm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eOW-dc-aqQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4474" y="589"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Buy-e7-J2y">
@@ -290,6 +355,9 @@
         <image name="scope" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
