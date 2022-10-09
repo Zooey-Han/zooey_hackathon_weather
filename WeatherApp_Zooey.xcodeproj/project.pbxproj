@@ -11,6 +11,7 @@
 		6302A26C28F181D90078A818 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6302A26B28F181D90078A818 /* SettingViewController.swift */; };
 		6302A27228F1B4A50078A818 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6302A27128F1B4A50078A818 /* WeatherViewController.swift */; };
 		6302A27428F1DF340078A818 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6302A27328F1DF340078A818 /* SettingCell.swift */; };
+		63111E3328F30E1B00BE5A74 /* weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63111E3228F30E1B00BE5A74 /* weather.swift */; };
 		6331640128F12FF900885B83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331640028F12FF900885B83 /* AppDelegate.swift */; };
 		6331640328F12FF900885B83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331640228F12FF900885B83 /* SceneDelegate.swift */; };
 		6331640528F12FF900885B83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331640428F12FF900885B83 /* ViewController.swift */; };
@@ -21,6 +22,9 @@
 		6331642B28F1721D00885B83 /* 10686-the-moon.json in Resources */ = {isa = PBXBuildFile; fileRef = 6331642A28F1721D00885B83 /* 10686-the-moon.json */; };
 		6334137F28F2BEAA00AADB2F /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6334137E28F2BEAA00AADB2F /* SelectViewController.swift */; };
 		6360055728F1E29A0087161D /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360055628F1E29A0087161D /* Setting.swift */; };
+		63F0F7AA28F338F200398A81 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F0F7A928F338F200398A81 /* AnswerViewController.swift */; };
+		63F0F7AC28F3392D00398A81 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F0F7AB28F3392D00398A81 /* PrivacyViewController.swift */; };
+		63F0F7AE28F3393C00398A81 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F0F7AD28F3393C00398A81 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,7 @@
 		6302A26B28F181D90078A818 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6302A27128F1B4A50078A818 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		6302A27328F1DF340078A818 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		63111E3228F30E1B00BE5A74 /* weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather.swift; sourceTree = "<group>"; };
 		633163FD28F12FF900885B83 /* WeatherApp_Zooey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp_Zooey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6331640028F12FF900885B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6331640228F12FF900885B83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +44,9 @@
 		6331642A28F1721D00885B83 /* 10686-the-moon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "10686-the-moon.json"; sourceTree = "<group>"; };
 		6334137E28F2BEAA00AADB2F /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		6360055628F1E29A0087161D /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		63F0F7A928F338F200398A81 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
+		63F0F7AB28F3392D00398A81 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		63F0F7AD28F3393C00398A81 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				6360055628F1E29A0087161D /* Setting.swift */,
+				63111E3228F30E1B00BE5A74 /* weather.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,8 +125,11 @@
 				6331640428F12FF900885B83 /* ViewController.swift */,
 				6302A27128F1B4A50078A818 /* WeatherViewController.swift */,
 				6334137E28F2BEAA00AADB2F /* SelectViewController.swift */,
-				6302A26928F181CB0078A818 /* LocationViewController.swift */,
 				6302A26B28F181D90078A818 /* SettingViewController.swift */,
+				6302A26928F181CB0078A818 /* LocationViewController.swift */,
+				63F0F7A928F338F200398A81 /* AnswerViewController.swift */,
+				63F0F7AB28F3392D00398A81 /* PrivacyViewController.swift */,
+				63F0F7AD28F3393C00398A81 /* InfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -200,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63111E3328F30E1B00BE5A74 /* weather.swift in Sources */,
 				6302A26C28F181D90078A818 /* SettingViewController.swift in Sources */,
 				6302A27228F1B4A50078A818 /* WeatherViewController.swift in Sources */,
 				6331640528F12FF900885B83 /* ViewController.swift in Sources */,
@@ -208,7 +221,10 @@
 				6331640328F12FF900885B83 /* SceneDelegate.swift in Sources */,
 				6360055728F1E29A0087161D /* Setting.swift in Sources */,
 				6334137F28F2BEAA00AADB2F /* SelectViewController.swift in Sources */,
+				63F0F7AE28F3393C00398A81 /* InfoViewController.swift in Sources */,
 				6302A26A28F181CB0078A818 /* LocationViewController.swift in Sources */,
+				63F0F7AA28F338F200398A81 /* AnswerViewController.swift in Sources */,
+				63F0F7AC28F3392D00398A81 /* PrivacyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

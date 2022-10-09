@@ -39,14 +39,37 @@ class SettingViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
+    
+    
+    
 }
 
 extension SettingViewController: UITableViewDelegate {
     // 셀 선택시 다음 화면으로 넘어가기
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toDetail", sender: nil)
+        if indexPath.row == 0 {
+            let locationVC = storyboard?.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+            locationVC.modalPresentationStyle = .fullScreen
+            present(locationVC, animated: true)
+        }
+        if indexPath.row == 1 {
+            let locationVC = storyboard?.instantiateViewController(withIdentifier: "AnswerViewController") as! AnswerViewController
+            locationVC.modalPresentationStyle = .fullScreen
+            present(locationVC, animated: true)
+        }
+        if indexPath.row == 2 {
+            let locationVC = storyboard?.instantiateViewController(withIdentifier: "PrivacyViewController") as! PrivacyViewController
+            locationVC.modalPresentationStyle = .fullScreen
+            present(locationVC, animated: true)
+        }
+        if indexPath.row == 3 {
+            let locationVC = storyboard?.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+            locationVC.modalPresentationStyle = .fullScreen
+            present(locationVC, animated: true)
+        }
+        
         // 되돌아 갈때 셀 색상 해제
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
     }
 }

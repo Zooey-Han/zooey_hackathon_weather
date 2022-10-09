@@ -8,22 +8,35 @@
 import UIKit
 
 class SelectViewController: UIViewController {
+    
+    // 서치 컨트롤러 생성
+    let serchController = UISearchController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupSearchBar()
+       
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // 서치바 셋팅
+    func setupSearchBar() {
+        navigationItem.searchController = serchController
+        serchController.searchBar.placeholder = "지금 날씨가 궁금한 곳은?"
+        //serchController.searchBar.delegate = self
+        
     }
-    */
 
+
+}
+
+extension SelectViewController: UISearchControllerDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchBar)
+        
+       
+        
+        
+    }
 }

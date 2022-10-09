@@ -15,6 +15,8 @@ class LocationViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     
+    @IBOutlet weak var selectButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,7 @@ class LocationViewController: UIViewController {
     func setupUI() {
         locationLabel.layer.cornerRadius = 10
         locationLabel.layer.masksToBounds = true
+        selectButton.layer.cornerRadius = 10
         settingSwitch.addTarget(self, action: #selector(settingSwitch(_:)), for: .valueChanged)
         
     }
@@ -49,6 +52,10 @@ class LocationViewController: UIViewController {
     }
     
     
+    @IBAction func selectionButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+        
+    }
     
 }
 
