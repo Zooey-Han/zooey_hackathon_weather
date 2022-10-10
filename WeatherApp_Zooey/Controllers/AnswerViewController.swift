@@ -14,14 +14,9 @@ class AnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         selectButton.layer.cornerRadius = 10
-
-       
     }
-    
-
     
     @IBAction func selectionButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    
 }

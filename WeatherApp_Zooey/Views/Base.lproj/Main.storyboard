@@ -341,14 +341,70 @@
                     <view key="view" contentMode="scaleToFill" id="JXG-1z-GZV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rix-rZ-zKT">
+                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nwX-CC-k3k">
+                                    <size key="itemSize" width="390" height="55"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCollectionViewCell" id="zc2-Ij-DkK" customClass="SearchCollectionViewCell" customModule="WeatherApp_Zooey" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iky-vp-w1q">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBG-U5-S9W">
+                                                    <rect key="frame" x="169.33333333333334" y="15.666666666666664" width="51.333333333333343" height="24"/>
+                                                    <gestureRecognizers/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pBG-U5-S9W" firstAttribute="centerX" secondItem="iky-vp-w1q" secondAttribute="centerX" id="Jpm-ja-xrg"/>
+                                                <constraint firstItem="pBG-U5-S9W" firstAttribute="centerY" secondItem="iky-vp-w1q" secondAttribute="centerY" id="tru-a6-fQ3"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.78741221530000005" green="0.85243533910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
+                                        <size key="customSize" width="390" height="55"/>
+                                        <connections>
+                                            <outlet property="nameLoc" destination="pBG-U5-S9W" id="Rux-CD-dsU"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vwn-dJ-RZz">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="erp-s5-pxt"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="erp-s5-pxt" firstAttribute="bottom" secondItem="rix-rZ-zKT" secondAttribute="bottom" id="4YS-Av-EEL"/>
+                            <constraint firstItem="rix-rZ-zKT" firstAttribute="top" secondItem="erp-s5-pxt" secondAttribute="top" id="BJ5-0K-rIj"/>
+                            <constraint firstItem="rix-rZ-zKT" firstAttribute="leading" secondItem="erp-s5-pxt" secondAttribute="leading" id="K68-RN-vTf"/>
+                            <constraint firstItem="erp-s5-pxt" firstAttribute="trailing" secondItem="rix-rZ-zKT" secondAttribute="trailing" id="gWk-zj-T83"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="지역 설정" style="editor" id="qC8-PG-J1z"/>
+                    <navigationItem key="navigationItem" title="지역 설정" style="editor" id="qC8-PG-J1z">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="v8O-Lr-EGV"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="rix-rZ-zKT" id="3jc-pF-s61"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHn-4U-7mX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3031" y="-543"/>
+            <point key="canvasLocation" x="3373.8461538461538" y="-681.042654028436"/>
         </scene>
         <!--설정-->
         <scene sceneID="D2Y-BC-CJh">

@@ -7,36 +7,50 @@
 
 import UIKit
 
-class SelectViewController: UIViewController {
-    
-    // 서치 컨트롤러 생성
-    let serchController = UISearchController()
 
+class SelectViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    let messages: [CellMessage] = CellMessage.messages
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupSearchBar()
-       
-    }
-    
-    
-    // 서치바 셋팅
-    func setupSearchBar() {
-        navigationItem.searchController = serchController
-        serchController.searchBar.placeholder = "지금 날씨가 궁금한 곳은?"
-        //serchController.searchBar.delegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
-    }
-
-
-}
-
-extension SelectViewController: UISearchControllerDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchBar)
-        
-       
-        
-        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 10
+        collectionView!.collectionViewLayout = layout
     }
 }
+
+extension SelectViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        let message = messages[indexPath.item]
+        cell.configure(message)
+        cell.layer.cornerRadius = 20
+        return cell
+    }
+}
+
+extension SelectViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 360, height: 70)
+    }
+}
+
+
+extension SelectViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    }
+}
+
+

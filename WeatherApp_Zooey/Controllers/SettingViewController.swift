@@ -16,7 +16,6 @@ class SettingViewController: UIViewController, UITableViewDataSource {
         Setting(settingImage: UIImage(systemName: "chevron.right"), settingLabel: "개발자 정보")
     ]
     
-    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -39,9 +38,6 @@ class SettingViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
-    
-    
-    
 }
 
 extension SettingViewController: UITableViewDelegate {
@@ -70,6 +66,5 @@ extension SettingViewController: UITableViewDelegate {
         
         // 되돌아 갈때 셀 색상 해제
         tableView.deselectRow(at: indexPath, animated: true)
-
     }
 }

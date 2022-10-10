@@ -13,7 +13,6 @@ class WeatherViewController: UIViewController {
     
     let messages: [CellMessage] = CellMessage.messages
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -22,7 +21,6 @@ class WeatherViewController: UIViewController {
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.estimatedItemSize = .zero
         }
-        
     }
     
     // back 버튼 사라지게
@@ -30,7 +28,6 @@ class WeatherViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
     }
-    
 }
 
 
@@ -46,8 +43,6 @@ extension WeatherViewController: UICollectionViewDataSource {
         let message = messages[indexPath.item]
         cell.configure(message)
         return cell
-        
-        
     }
 }
     

@@ -19,11 +19,7 @@ class ViewController: UIViewController {
             print("Animation finished!")
             
             self.animationView.removeFromSuperview()
-            
-            
         }
-        
-        
     }
     
     // splash animation
@@ -34,14 +30,8 @@ class ViewController: UIViewController {
         return animView
     }()
     
-    
-    
     @IBAction func buttonTapped(_ sender: UIButton) {
-        
-        
     }
-    
-    
 }
 
 

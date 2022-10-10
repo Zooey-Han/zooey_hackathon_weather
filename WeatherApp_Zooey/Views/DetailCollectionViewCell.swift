@@ -18,10 +18,6 @@ class DetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lowtem: UILabel!
     @IBOutlet weak var detailTxt: UILabel!
     
-
-
-    
-    
     func configure(_ message: CellMessage) {
         name.text = message.locationName
         icon.image = UIImage(named: message.weatherIcon)
@@ -33,9 +29,6 @@ class DetailCollectionViewCell: UICollectionViewCell {
         detailTxt.text = message.detail
         
     }
-    
-    
-    
 }
 
 

@@ -18,10 +18,6 @@ struct CellMessage {
     var detail: String
 }
 
-
-
-
-
 extension CellMessage {
     static let messages: [CellMessage] = [
         
