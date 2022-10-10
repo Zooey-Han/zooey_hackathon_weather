@@ -12,7 +12,7 @@ class LocationViewController: UIViewController {
     
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var settingSwitch: UISwitch!
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
     
     
     @IBOutlet weak var selectButton: UIButton!
@@ -83,5 +83,9 @@ extension LocationViewController : CLLocationManagerDelegate {
         default:
             print("GPS: default")
         }
-      }
+        
+    }
+    
 }
+
+
