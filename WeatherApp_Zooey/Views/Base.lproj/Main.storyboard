@@ -39,8 +39,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="확 인"/>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Ob-T4-Tu6"/>
-                                    <segue destination="lsr-Bd-Wib" kind="show" id="5BI-ow-rSS"/>
+                                    <segue destination="lsr-Bd-Wib" kind="show" id="iKw-5C-0dO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치(선택)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMR-IZ-eOv">
@@ -102,13 +101,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yjB-UI-Ju9">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yjB-UI-Ju9">
                                 <rect key="frame" x="0.0" y="91" width="390" height="719"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4Ml-Nk-I8w">
                                     <size key="itemSize" width="390" height="718"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="50" height="50"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -293,6 +292,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xVT-iy-7WB">
+                                    <rect key="frame" x="390" y="0.0" width="50" height="719"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iLN-gE-3Gq"/>
@@ -315,7 +318,7 @@
                             <barButtonItem image="plus" catalog="system" id="c6S-AT-hQa">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="Hok-QR-cyk" kind="show" id="JtB-Io-uOG"/>
+                                    <segue destination="Hok-QR-cyk" kind="show" id="z9C-9I-iA5"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -332,27 +335,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlB-vR-JF5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1997" y="-34"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="BYg-hl-ggp">
-            <objects>
-                <viewController id="lE1-br-BUy" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tUH-e9-3UY">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="cix-uU-x09"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vav-ow-dce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1711" y="-1068"/>
+            <point key="canvasLocation" x="1986" y="-34"/>
         </scene>
         <!--지역 설정-->
         <scene sceneID="MSG-cN-T4p">
             <objects>
-                <viewController id="Hok-QR-cyk" customClass="SelectViewController" customModule="WeatherApp_Zooey" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectViewController" id="Hok-QR-cyk" customClass="SelectViewController" customModule="WeatherApp_Zooey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JXG-1z-GZV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,13 +350,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nwX-CC-k3k">
                                     <size key="itemSize" width="390" height="55"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCollectionViewCell" id="zc2-Ij-DkK" customClass="SearchCollectionViewCell" customModule="WeatherApp_Zooey" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="390" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iky-vp-w1q">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="55"/>
@@ -410,10 +398,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="k9g-1x-kfj">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="erp-s5-pxt"/>
@@ -425,14 +409,16 @@
                             <constraint firstItem="erp-s5-pxt" firstAttribute="trailing" secondItem="rix-rZ-zKT" secondAttribute="trailing" id="gWk-zj-T83"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="지역 설정" style="editor" id="qC8-PG-J1z"/>
+                    <navigationItem key="navigationItem" title="지역 설정" style="editor" id="qC8-PG-J1z">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wsh-Al-YVV"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="rix-rZ-zKT" id="3jc-pF-s61"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHn-4U-7mX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3440" y="-437.2037914691943"/>
+            <point key="canvasLocation" x="3374" y="-535"/>
         </scene>
         <!--설정-->
         <scene sceneID="D2Y-BC-CJh">
@@ -507,7 +493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZI-t7-gi1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3474" y="421"/>
+            <point key="canvasLocation" x="3322" y="208"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="i3O-LX-lb6">

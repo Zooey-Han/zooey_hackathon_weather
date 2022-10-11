@@ -25,18 +25,6 @@ class SearchCollectionViewCell: UICollectionViewCell {
         }
     }
     
-//    override var isSelected: Bool {
-//            didSet {
-//                if isSelected {
-//                    nameView.backgroundColor = UIColor.lightGray
-//                    clickCount -= 1
-//                    if clickCount == 0 {
-//                        print("경고")
-//                    }
-//                }
-//            }
-//        }
-
     func configure(_ message: CellMessage) {
         nameLoc.text = message.locationName
     }

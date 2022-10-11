@@ -13,6 +13,7 @@ class SelectViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let messages: [CellMessage] = CellMessage.messages
+    static let clickView: [CellMessage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,22 +57,18 @@ extension SelectViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // 불러올거야
-extension SelectViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let framework = messages[indexPath.item]
-        print(">>>> selected: \(framework.locationName)")
+//extension SelectViewController: UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        let framework = messages[indexPath.item]
         
-        // 스토리보드로 가져올 데이터 weatherViewController!! -> 실패
-        //        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        //        let vc = storyBoard.instantiateViewController(withIdentifier: "WeatherViewController") as! SelectViewController
-        //        present(vc, animated: true)
-        //
-        //    }
-    }
-}
+          
+            
+            //스토리보드로 가져올 데이터 weatherViewController!! -> 실패
+            //        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            //        let vc = storyBoard.instantiateViewController(withIdentifier: "WeatherViewController") as! SelectViewController
+            //        present(vc, animated: true)
+            
 
-
-//protocol NextView: AnyObject {
-//    func dismiss
+ //   }
+    
 //}
-
