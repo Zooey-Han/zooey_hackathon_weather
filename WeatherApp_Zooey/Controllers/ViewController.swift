@@ -8,6 +8,7 @@
 import UIKit
 import Lottie
 
+// 애니메이션 효과(로티 구현)
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()

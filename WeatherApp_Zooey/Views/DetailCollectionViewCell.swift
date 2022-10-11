@@ -7,6 +7,7 @@
 
 import UIKit
 
+// 날씨 셀
 class DetailCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var name: UILabel!

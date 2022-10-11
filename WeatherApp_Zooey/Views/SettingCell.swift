@@ -7,6 +7,7 @@
 
 import UIKit
 
+//설정 테이블 뷰
 class SettingCell: UITableViewCell {
 
     @IBOutlet weak var settingImage: UIImageView!

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// 문의하기
 class AnswerViewController: UIViewController {
 
     @IBOutlet weak var selectButton: UIButton!

@@ -9,6 +9,7 @@ import UIKit
 
 class SettingViewController: UIViewController, UITableViewDataSource {
     
+    // 테이블 뷰에 담아줄 배열
     var settingArray: [Setting] = [
         Setting(settingImage: UIImage(systemName: "chevron.right"), settingLabel: "현재 위치"),
         Setting(settingImage: UIImage(systemName: "chevron.right"), settingLabel: "문의하기"),

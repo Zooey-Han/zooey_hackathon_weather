@@ -30,7 +30,6 @@ class WeatherViewController: UIViewController {
     }
 }
 
-
 extension WeatherViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
@@ -59,3 +58,4 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout {
         return .zero
     }
 }
+

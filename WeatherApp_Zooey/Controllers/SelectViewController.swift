@@ -9,20 +9,27 @@ import UIKit
 
 
 class SelectViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     let messages: [CellMessage] = CellMessage.messages
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        // 컬렉션 셀 간격
         layout.minimumLineSpacing = 10
         collectionView!.collectionViewLayout = layout
+    }
+    
+    // 클릭된 셀 가져와서 카운트 세기
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! SearchCollectionViewCell
+        cell.clickCount += 1
     }
 }
 
@@ -36,6 +43,7 @@ extension SelectViewController: UICollectionViewDataSource {
         }
         let message = messages[indexPath.item]
         cell.configure(message)
+        //컬렉션 셀 코너 둥글게
         cell.layer.cornerRadius = 20
         return cell
     }
@@ -47,10 +55,23 @@ extension SelectViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
-extension SelectViewController: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar, textDidChange searchText: String) {
+// 불러올거야
+extension SelectViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let framework = messages[indexPath.item]
+        print(">>>> selected: \(framework.locationName)")
+        
+        // 스토리보드로 가져올 데이터 weatherViewController!! -> 실패
+        //        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        //        let vc = storyBoard.instantiateViewController(withIdentifier: "WeatherViewController") as! SelectViewController
+        //        present(vc, animated: true)
+        //
+        //    }
     }
 }
 
+
+//protocol NextView: AnyObject {
+//    func dismiss
+//}
 

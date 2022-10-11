@@ -7,6 +7,7 @@
 
 import UIKit
 
+// 개인정보보호정책
 class PrivacyViewController: UIViewController {
 
     @IBOutlet weak var selectButton: UIButton!
