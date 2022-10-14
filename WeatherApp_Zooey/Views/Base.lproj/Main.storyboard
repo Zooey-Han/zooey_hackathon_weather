@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WKe-YV-d2g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,76 +18,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="웨더 앱 이용을 위해" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjK-GW-EpH">
-                                <rect key="frame" x="95" y="375" width="100" height="16"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="접근 권한이 허용이 필요합니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWY-Cc-vYe">
-                                <rect key="frame" x="95" y="397" width="161" height="16"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scope" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0PQ-GD-oYo">
-                                <rect key="frame" x="97" y="437" width="23" height="22.333333333333314"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAO-iV-PbY">
-                                <rect key="frame" x="140" y="488" width="95" height="34.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="확 인"/>
-                                <connections>
-                                    <segue destination="lsr-Bd-Wib" kind="show" id="iKw-5C-0dO"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치(선택)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMR-IZ-eOv">
-                                <rect key="frame" x="125" y="434" width="42" height="12"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 위치 중심으로 날씨 정보 이용" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b20-ng-9kT">
-                                <rect key="frame" x="126" y="445" width="135" height="12"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※ 동의하지 않아도 앱 이용은 가능합니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5J-60-3wv">
-                                <rect key="frame" x="126" y="456" width="162" height="12"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
-                        <constraints>
-                            <constraint firstItem="HMR-IZ-eOv" firstAttribute="leading" secondItem="0PQ-GD-oYo" secondAttribute="trailing" constant="5" id="5PH-S9-He5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K5J-60-3wv" secondAttribute="trailing" constant="102" id="90b-Ck-aSj"/>
-                            <constraint firstItem="YAO-iV-PbY" firstAttribute="top" secondItem="K5J-60-3wv" secondAttribute="bottom" constant="20" id="AA9-z1-Yy2"/>
-                            <constraint firstItem="MjK-GW-EpH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="95" id="CnB-ok-0aa"/>
-                            <constraint firstItem="HMR-IZ-eOv" firstAttribute="top" secondItem="PWY-Cc-vYe" secondAttribute="bottom" constant="21" id="FqA-fZ-t54"/>
-                            <constraint firstItem="K5J-60-3wv" firstAttribute="top" secondItem="HMR-IZ-eOv" secondAttribute="bottom" constant="10" id="HDX-Hb-6t1"/>
-                            <constraint firstItem="PWY-Cc-vYe" firstAttribute="top" secondItem="MjK-GW-EpH" secondAttribute="bottom" constant="6" id="Iq1-hT-D0t"/>
-                            <constraint firstItem="K5J-60-3wv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="KsG-Jg-JYq"/>
-                            <constraint firstItem="PWY-Cc-vYe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="95" id="OAS-PJ-Pog"/>
-                            <constraint firstItem="0PQ-GD-oYo" firstAttribute="top" secondItem="PWY-Cc-vYe" secondAttribute="bottom" constant="25" id="RaI-Rb-rvE"/>
-                            <constraint firstItem="b20-ng-9kT" firstAttribute="leading" secondItem="0PQ-GD-oYo" secondAttribute="trailing" constant="6" id="Urh-I9-ei8"/>
-                            <constraint firstItem="0PQ-GD-oYo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="97" id="XcC-Ju-2yd"/>
-                            <constraint firstItem="b20-ng-9kT" firstAttribute="top" secondItem="PWY-Cc-vYe" secondAttribute="bottom" constant="32" id="azj-lj-WLh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PWY-Cc-vYe" secondAttribute="trailing" constant="134" id="fds-O9-Tqt"/>
-                            <constraint firstItem="MjK-GW-EpH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="284" id="fyd-Fn-Ncl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HMR-IZ-eOv" secondAttribute="trailing" constant="223" id="guU-JP-x7m"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MjK-GW-EpH" secondAttribute="trailing" constant="195" id="iXh-4F-QmV"/>
-                            <constraint firstItem="HMR-IZ-eOv" firstAttribute="leading" secondItem="0PQ-GD-oYo" secondAttribute="trailing" constant="5" id="khz-hD-OAu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b20-ng-9kT" secondAttribute="trailing" constant="129" id="xsx-Hq-2uQ"/>
-                            <constraint firstItem="YAO-iV-PbY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="140" id="yNU-Up-WLQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YAO-iV-PbY" secondAttribute="trailing" constant="155" id="yeh-HN-R5d"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="lJT-hb-MNN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yjB-UI-Ju9">
-                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4Ml-Nk-I8w">
                                     <size key="itemSize" width="390" height="718"/>
@@ -112,7 +45,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DetailCollectionViewCell" id="m9S-RB-a5R" customClass="DetailCollectionViewCell" customModule="WeatherApp_Zooey" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.66666666666666663" width="390" height="718"/>
+                                        <rect key="frame" x="0.0" y="22.666666666666668" width="390" height="718"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ht9-xw-YfB">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="718"/>
@@ -293,7 +226,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xVT-iy-7WB">
-                                    <rect key="frame" x="390" y="0.0" width="50" height="719"/>
+                                    <rect key="frame" x="390" y="0.0" width="50" height="763"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
@@ -307,22 +240,6 @@
                             <constraint firstItem="yjB-UI-Ju9" firstAttribute="top" secondItem="iLN-gE-3Gq" secondAttribute="top" id="eV5-Qw-LxC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="htB-9J-2oH">
-                        <rightBarButtonItems>
-                            <barButtonItem image="line.3.horizontal" catalog="system" id="Yv2-Qs-X74">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <segue destination="ch5-MU-G74" kind="show" id="XZE-5N-ZTf"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="plus" catalog="system" id="c6S-AT-hQa">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <segue destination="Hok-QR-cyk" kind="show" id="z9C-9I-iA5"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -346,7 +263,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rix-rZ-zKT">
-                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nwX-CC-k3k">
                                     <size key="itemSize" width="390" height="55"/>
@@ -429,7 +346,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="T3W-SY-Fzq">
-                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" id="Wr9-Nn-GWc" customClass="SettingCell" customModule="WeatherApp_Zooey" customModuleProvider="target">
@@ -769,31 +686,10 @@ e-mail@email.com
             </objects>
             <point key="canvasLocation" x="5477" y="262"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Buy-e7-J2y">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WKe-YV-d2g" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D7o-V2-Q43">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UTp-8G-C4p"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lTD-Wd-3u4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="60" y="-34.123222748815166"/>
-        </scene>
     </scenes>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="drop" catalog="system" width="96" height="128"/>
-        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="scope" catalog="system" width="128" height="124"/>
         <image name="sun.max" catalog="system" width="128" height="125"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
