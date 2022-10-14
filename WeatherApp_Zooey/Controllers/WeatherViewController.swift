@@ -15,6 +15,7 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -24,10 +25,10 @@ class WeatherViewController: UIViewController {
     }
     
     // back 버튼 사라지게
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.hidesBackButton = true
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.navigationItem.hidesBackButton = true
+//    }
 }
 
 extension WeatherViewController: UICollectionViewDataSource {

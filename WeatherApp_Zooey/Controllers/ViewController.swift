@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-// 애니메이션 효과(로티 구현)
+// MARK: - 애니메이션 효과
 class ViewController: UIViewController {
     // splash animation
     private let animationView: AnimationView = {
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         return animView
     }()
     
-    // 애니메이션 후 보여줄 화면
+    // MARK: - 다음에 띄울 화면
     private let popView: UILabel = {
         let label = UILabel()
         label.text = "웨더 앱 이용을 위해 접근 권한 허용이 필요합니다."
@@ -57,6 +57,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         // 애니메이션 보여주기 후 삭제 -> 다음 화면 나오기
         view.addSubview(animationView)
         animationView.center = view.center
@@ -67,7 +68,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // 레이블 + 버튼 UI
+    // MARK: - UI 셋팅
     func makeUI() {
         view.addSubview(popView)
         popView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,14 +93,6 @@ class ViewController: UIViewController {
     
     // 버튼 누르면 다음 화면으로 이동
     @objc func pressedBtnTapped() {
-        
-        //let vc = UINavigationController(rootViewController: WeatherViewController())
-        
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "WeatherViewController")
-        //UINavigationController(rootViewController: WeatherViewController())
-        vcName?.modalPresentationStyle = .fullScreen
-        vcName?.modalTransitionStyle = .crossDissolve
-        //self.navigationController?.pushViewController(vcName, animated: true)
-        self.present(vcName!, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
