@@ -20,20 +20,25 @@ final class ViewController: UIViewController {
     // MARK: - 다음에 띄울 화면
     private let popView: UILabel = {
         let label = UILabel()
-        label.text = "웨더 앱 이용을 위해 접근 권한 허용이 필요합니다."
-        label.font = UIFont.boldSystemFont(ofSize: 19)
+        label.text = """
+                        웨더 앱 이용을 위해
+                        접근 권한 허용이 필요합니다.
+                    """
+        label.font = UIFont.boldSystemFont(ofSize: 28)
         label.textColor = .black
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
         return label
     }()
     
     private let popView2: UILabel = {
         let label = UILabel()
         label.text = """
-                        위치사용(선택)
-                        현재 위치를 중심으로 날씨 정보 이용
-                        ※ 동의하지 않아도 앱 이용은 가능합니다.
+                            위치사용(선택)
+                            현재 위치를 중심으로 날씨 정보 이용
+                            ※ 동의하지 않아도 앱 이용은 가능합니다.
                     """
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = .black
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
@@ -73,13 +78,13 @@ final class ViewController: UIViewController {
         popView.translatesAutoresizingMaskIntoConstraints = false
         popView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         popView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        popView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        popView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         
         view.addSubview(popView2)
         popView2.translatesAutoresizingMaskIntoConstraints = false
         popView2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         popView2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        popView2.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
+        popView2.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
         
         view.addSubview(pressedButton)
         pressedButton.translatesAutoresizingMaskIntoConstraints = false

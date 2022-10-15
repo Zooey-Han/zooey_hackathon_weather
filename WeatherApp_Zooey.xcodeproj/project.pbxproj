@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6302A26A28F181CB0078A818 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6302A26928F181CB0078A818 /* LocationViewController.swift */; };
 		6302A27228F1B4A50078A818 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6302A27128F1B4A50078A818 /* WeatherViewController.swift */; };
 		63166F6928FAC10100609E99 /* SettingPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63166F6828FAC10100609E99 /* SettingPersonalViewController.swift */; };
 		63166F6D28FACADD00609E99 /* LocationSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63166F6C28FACADD00609E99 /* LocationSetViewController.swift */; };
@@ -33,7 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6302A26928F181CB0078A818 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		6302A27128F1B4A50078A818 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		63166F6828FAC10100609E99 /* SettingPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPersonalViewController.swift; sourceTree = "<group>"; };
 		63166F6C28FACADD00609E99 /* LocationSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSetViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			children = (
 				6335D10D28F474B3007BA1D0 /* SearchCollectionViewCell.swift */,
 				6335D10B28F421FA007BA1D0 /* CellMessage.swift */,
-				6302A26928F181CB0078A818 /* LocationViewController.swift */,
 				6302A27128F1B4A50078A818 /* WeatherViewController.swift */,
 				6334137E28F2BEAA00AADB2F /* SelectViewController.swift */,
 			);
@@ -248,7 +245,6 @@
 				6335D10C28F421FA007BA1D0 /* CellMessage.swift in Sources */,
 				6334137F28F2BEAA00AADB2F /* SelectViewController.swift in Sources */,
 				6390F61228F9DBCA00183F9D /* FirstViewController.swift in Sources */,
-				6302A26A28F181CB0078A818 /* LocationViewController.swift in Sources */,
 				6335D10E28F474B3007BA1D0 /* SearchCollectionViewCell.swift in Sources */,
 				63166F6D28FACADD00609E99 /* LocationSetViewController.swift in Sources */,
 				6352671828FA913300F5C0AA /* SettingPersonalCell.swift in Sources */,

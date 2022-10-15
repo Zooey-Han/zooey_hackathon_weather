@@ -8,9 +8,13 @@
 import UIKit
 
 final class SelectWeatherViewController: UIViewController {
+    
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         view.backgroundColor = .systemGray6
         title = "지역 설정"
@@ -25,6 +29,4 @@ final class SelectWeatherViewController: UIViewController {
     }
     
 }
-
-
 
