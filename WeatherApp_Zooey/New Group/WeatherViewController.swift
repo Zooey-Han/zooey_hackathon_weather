@@ -17,7 +17,7 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
        
         collectionView.delegate = self
-        collectionView.dataSource = self
+        //collectionView.dataSource = self
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.estimatedItemSize = .zero
@@ -30,21 +30,21 @@ class WeatherViewController: UIViewController {
 //        self.navigationItem.hidesBackButton = true
 //    }
 }
-
-extension WeatherViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCollectionViewCell", for: indexPath) as? DetailCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        let message = messages[indexPath.item]
-        cell.configure(message)
-        return cell
-    }
-}
+//
+//extension WeatherViewController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return messages.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SettingPersonalCell", for: indexPath) as? SettingPersonalCell else {
+//            return UICollectionViewCell()
+//        }
+//        let message = messages[indexPath.item]
+//        cell.configure(message)
+//        return cell
+//    }
+//}
     
 extension WeatherViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

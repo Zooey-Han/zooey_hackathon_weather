@@ -7,11 +7,12 @@
 
 import UIKit
 
-class SettingPersonalViewController: UIViewController {
+final class SettingPersonalViewController: UIViewController {
     
-    //테이블뷰
+    // 테이블뷰
     private let tableView = UITableView()
     
+    // 데이터 매니저
     var settingListManager = SettingLsitManager()
     
     override func viewDidLoad() {
@@ -29,6 +30,7 @@ class SettingPersonalViewController: UIViewController {
     
     func setupTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = 60
         tableView.register(SettingPersonalCell.self, forCellReuseIdentifier: "SettingCell")
     }
@@ -71,3 +73,29 @@ extension SettingPersonalViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - 셀 선택시 다음화면으로 넘어가기
+extension SettingPersonalViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let locationVC = LocationSetViewController()
+            navigationController?.pushViewController(locationVC, animated: true)
+        }
+        if indexPath.row == 1 {
+            let answerVC = AnswerSetViewController()
+            navigationController?.pushViewController(answerVC, animated: true)
+        }
+        if indexPath.row == 2 {
+            let personalVC = PesonalSetViewController()
+            navigationController?.pushViewController(personalVC, animated: true)
+        }
+        if indexPath.row == 3 {
+            let infoVC = InfoSetViewController()
+            navigationController?.pushViewController(infoVC, animated: true)
+        }
+        
+        // 되돌아 갈때 셀 색상 해제
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+

@@ -15,7 +15,7 @@ class SettingPersonalCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     let stackView: UIStackView = {
        let sv = UIStackView()
         sv.axis = .vertical
@@ -46,12 +46,12 @@ class SettingPersonalCell: UITableViewCell {
         setConstraints()
         super.updateConstraints()
     }
-
+    
      //오토레이아웃
+
     func setConstraints()  {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            //stackView.trailingAnchor.constraint(equalTo: goImage.leadingAnchor,constant: 50),
             stackView.topAnchor.constraint(equalTo: self.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
