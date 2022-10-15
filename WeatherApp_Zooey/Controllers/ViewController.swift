@@ -8,9 +8,8 @@
 import UIKit
 import Lottie
 
-// MARK: - 애니메이션 효과
-class ViewController: UIViewController {
-    // splash animation
+final class ViewController: UIViewController {
+    // MARK: - 애니메이션 효과
     private let animationView: AnimationView = {
         let animView = AnimationView(name:"10686-the-moon")
         animView.frame = CGRect(x:0, y:0, width: 400, height: 400)
@@ -58,7 +57,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        // 애니메이션 보여주기 후 삭제 -> 다음 화면 나오기
+        // MARK: - 애니메이션 효과 후 다음화면 보여주기
         view.addSubview(animationView)
         animationView.center = view.center
         animationView.play{ (finish) in
@@ -91,7 +90,7 @@ class ViewController: UIViewController {
         
     }
     
-    // 버튼 누르면 다음 화면으로 이동
+    // MARK: - 버튼 누르면 다음 화면 이동
     @objc func pressedBtnTapped() {
         dismiss(animated: true, completion: nil)
     }

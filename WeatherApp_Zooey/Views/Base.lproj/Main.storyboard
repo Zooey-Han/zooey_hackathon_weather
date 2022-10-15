@@ -329,88 +329,10 @@
                     <navigationItem key="navigationItem" title="지역 설정" style="editor" id="qC8-PG-J1z">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wsh-Al-YVV"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="collectionView" destination="rix-rZ-zKT" id="3jc-pF-s61"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHn-4U-7mX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5232.3076923076924" y="-535.30805687203792"/>
-        </scene>
-        <!--설정-->
-        <scene sceneID="D2Y-BC-CJh">
-            <objects>
-                <viewController id="ch5-MU-G74" customClass="SettingViewController" customModule="WeatherApp_Zooey" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="efD-H0-bUf">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="T3W-SY-Fzq">
-                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" id="Wr9-Nn-GWc" customClass="SettingCell" customModule="WeatherApp_Zooey" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="390" height="60.333332061767578"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wr9-Nn-GWc" id="zdW-NK-ZGY">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="60.333332061767578"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1Z-Hl-c24">
-                                                    <rect key="frame" x="20" y="0.0" width="170" height="60.333333333333336"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Label">
-                                                            <attributes>
-                                                                <font key="NSFont" size="16" name="AppleSDGothicNeo-Regular"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bdE-fy-2rF">
-                                                    <rect key="frame" x="360" y="20" width="20" height="20.333333333333329"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="ZvI-HH-cMf"/>
-                                                        <constraint firstAttribute="height" constant="20" id="qqT-aO-fQ6"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="bdE-fy-2rF" secondAttribute="trailing" constant="10" id="Jm6-uJ-bTD"/>
-                                                <constraint firstItem="P1Z-Hl-c24" firstAttribute="leading" secondItem="zdW-NK-ZGY" secondAttribute="leading" constant="20" id="LP0-xa-g04"/>
-                                                <constraint firstItem="bdE-fy-2rF" firstAttribute="leading" secondItem="P1Z-Hl-c24" secondAttribute="trailing" constant="170" id="PR8-iX-w4Y"/>
-                                                <constraint firstAttribute="bottom" secondItem="bdE-fy-2rF" secondAttribute="bottom" constant="20" id="PS4-fB-4Rm"/>
-                                                <constraint firstAttribute="bottom" secondItem="P1Z-Hl-c24" secondAttribute="bottom" id="TBM-BQ-25b"/>
-                                                <constraint firstItem="P1Z-Hl-c24" firstAttribute="top" secondItem="zdW-NK-ZGY" secondAttribute="top" id="brH-CA-p1K"/>
-                                                <constraint firstItem="bdE-fy-2rF" firstAttribute="top" secondItem="zdW-NK-ZGY" secondAttribute="top" constant="20" id="vfL-Nx-1QG"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="settingImage" destination="bdE-fy-2rF" id="ebn-Rb-2oc"/>
-                                            <outlet property="settingLabel" destination="P1Z-Hl-c24" id="baQ-K7-Q4R"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="cV6-Ei-Pbm"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                        <constraints>
-                            <constraint firstItem="T3W-SY-Fzq" firstAttribute="top" secondItem="cV6-Ei-Pbm" secondAttribute="top" id="4tN-So-hM3"/>
-                            <constraint firstItem="cV6-Ei-Pbm" firstAttribute="trailing" secondItem="T3W-SY-Fzq" secondAttribute="trailing" id="LhV-i2-97u"/>
-                            <constraint firstItem="T3W-SY-Fzq" firstAttribute="leading" secondItem="cV6-Ei-Pbm" secondAttribute="leading" id="SpG-KI-DLB"/>
-                            <constraint firstItem="cV6-Ei-Pbm" firstAttribute="bottom" secondItem="T3W-SY-Fzq" secondAttribute="bottom" id="YVr-k8-wGC"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="설정" style="editor" id="sLP-Vy-CEF"/>
-                    <connections>
-                        <outlet property="tableView" destination="T3W-SY-Fzq" id="mpE-GR-FrT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XZI-t7-gi1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5180" y="207.58293838862559"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="i3O-LX-lb6">
@@ -533,10 +455,6 @@ e-mail@email.com
                                     <action selector="selectionButtonTapped:" destination="hvk-5s-gGU" eventType="touchUpInside" id="Zhr-Du-VGN"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="b8P-ho-AaT">
-                                <rect key="frame" x="54" y="358" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bnd-C6-64c"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -694,7 +612,6 @@ e-mail@email.com
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="drop" catalog="system" width="96" height="128"/>
-        <image name="line" width="128" height="128"/>
         <image name="sun.max" catalog="system" width="128" height="125"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

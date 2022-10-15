@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+final class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +32,33 @@ class FirstViewController: UIViewController {
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
+        // 백버튼 커스텀
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+            self.navigationItem.backBarButtonItem = backBarButtonItem
+        
         // 버튼
-        var add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addWeatherTapped))
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addWeatherTapped))
                 
-        var line = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style:.plain, target: self, action: #selector(lineWeatherTapped))
-
+        let line = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style:.plain, target: self, action: #selector(lineWeatherTapped))
+        
+        // 버튼 한줄로 묶어줌
         navigationItem.rightBarButtonItems = [line, add]
     }
     
-    // MARK: - 네비게이션바 버튼 실행
+    // MARK: - 네비게이션바 버튼 설정
     @objc func addWeatherTapped() {
             print("addWeatherTapped")
+        // 화면 전환
+        let vc = SelectWeatherViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+        //전화면으로 돌아가는 버튼
+        //self.navigationController?.popViewController(animated: true)
     }
     @objc func lineWeatherTapped() {
             print("lineWeatherTapped")
+        let vc = SettingPersonalViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+        //self.navigationController?.popViewController(animated: true)
     }
     
 }
