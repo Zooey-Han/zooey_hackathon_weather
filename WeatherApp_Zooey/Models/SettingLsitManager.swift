@@ -21,10 +21,12 @@ final class SettingLsitManager: UIViewController {
         ]
     }
     
+    // 리스트 얻기
     func getSettingList() -> [SettingPesonal] {
         return settingList
     }
-
+    
+    // 특정멤버 얻기
     subscript(index: Int) -> SettingPesonal {
         get {
             return settingList[index]

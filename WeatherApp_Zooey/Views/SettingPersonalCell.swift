@@ -48,7 +48,6 @@ class SettingPersonalCell: UITableViewCell {
     }
     
      //오토레이아웃
-
     func setConstraints()  {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),

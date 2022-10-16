@@ -27,6 +27,5 @@ final class SelectWeatherViewController: UIViewController {
     @objc func backBotton() {
         self.navigationController?.popViewController(animated: true)
     }
-    
 }
 

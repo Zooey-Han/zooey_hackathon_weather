@@ -11,8 +11,9 @@ import Lottie
 final class ViewController: UIViewController {
     // MARK: - 애니메이션 효과
     private let animationView: AnimationView = {
-        let animView = AnimationView(name:"10686-the-moon")
-        animView.frame = CGRect(x:0, y:0, width: 400, height: 400)
+        let animView = AnimationView(name: "fullscreen")
+        let screenSize: CGRect = UIScreen.main.bounds
+        animView.frame = CGRect(x:0, y:0, width: screenSize.width, height: screenSize.height)
         animView.contentMode = .scaleToFill
         return animView
     }()
@@ -68,6 +69,7 @@ final class ViewController: UIViewController {
         animationView.play{ (finish) in
             print("Animation finished!")
             self.animationView.removeFromSuperview()
+            
             self.makeUI()
         }
     }
