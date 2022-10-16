@@ -10,12 +10,10 @@ import UIKit
 final class FirstViewController: UIViewController {
     
     var weatherListManager = WeatherDataManager()
-    
-    // MARK: - 컬렉션뷰
-    let collectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
 
+    // MARK: - 컬렉션뷰
+    private var collectionView : UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .clear
         cv.translatesAutoresizingMaskIntoConstraints = false
@@ -50,8 +48,8 @@ final class FirstViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(WeatherCell.self, forCellWithReuseIdentifier: "WeatherCell")
+        collectionView.collectionViewLayout = compositonLayout()
     }
-    
     
     // MARK: - 네비게이션바 설정
     func setupNaviBar() {
@@ -131,7 +129,7 @@ extension FirstViewController: UICollectionViewDelegate {
 
 extension FirstViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return weatherListManager.getWeatherList().count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -152,5 +150,29 @@ extension FirstViewController: UICollectionViewDataSource {
 //        cell.weatherDetail.text = weatherListManager[indexPath.row].detail
        
         return cell
+    }
+}
+
+// MARK: - 컴포지션레이아웃 설정
+extension FirstViewController {
+    fileprivate func compositonLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout {
+            (sectionIndex: Int, layoutEnviroment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            // 아이템 사이즈
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+            // 아이템을 몇 개 보여줄지
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+            // 그룹 사이즈
+            let grouSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+            // 그룹을 몇 개 보여줄지
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: grouSize, subitem: item, count: 1)
+            // 섹션 설정
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+            section.orthogonalScrollingBehavior = .groupPaging
+            return section
+        }
+        return layout
     }
 }

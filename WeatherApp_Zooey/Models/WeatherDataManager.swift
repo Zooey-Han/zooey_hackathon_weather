@@ -24,6 +24,8 @@ final class WeatherDataManager: UIViewController {
     }
     // 리스트 얻기
     func getWeatherList() -> [Weather] {
+        // 여기에 리스트가 변하면 .count도 변하게!
+        // collectionview.reoadData()
         return weatherList
     }
     

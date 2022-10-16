@@ -12,14 +12,14 @@ class SelectViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let messages: [CellMessage] = CellMessage.messages
-    static let clickView: [CellMessage] = []
+//    let messages: [CellMessage] = CellMessage.messages
+//    static let clickView: [CellMessage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         // 컬렉션 셀 간격
@@ -34,27 +34,27 @@ class SelectViewController: UIViewController {
     }
 }
 
-extension SelectViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        let message = messages[indexPath.item]
-        cell.configure(message)
-        //컬렉션 셀 코너 둥글게
-        cell.layer.cornerRadius = 20
-        return cell
-    }
-}
-
-extension SelectViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 360, height: 70)
-    }
-}
+//extension SelectViewController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return messages.count
+//    }
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else {
+//            return UICollectionViewCell()
+//        }
+//        let message = messages[indexPath.item]
+//        cell.configure(message)
+//        //컬렉션 셀 코너 둥글게
+//        cell.layer.cornerRadius = 20
+//        return cell
+//    }
+//}
+//
+//extension SelectViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 360, height: 70)
+//    }
+//}
 
 // 불러올거야
 //extension SelectViewController: UICollectionViewDelegate {

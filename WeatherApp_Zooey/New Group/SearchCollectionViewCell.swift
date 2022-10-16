@@ -25,7 +25,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configure(_ message: CellMessage) {
-        nameLoc.text = message.locationName
-    }
+//    func configure(_ message: CellMessage) {
+//        nameLoc.text = message.locationName
+//    }
 }

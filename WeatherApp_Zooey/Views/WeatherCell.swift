@@ -9,9 +9,11 @@ import UIKit
 
 class WeatherCell: UICollectionViewCell {
     
+    static let id = "WeatherCell"
+    
     var weather: Weather? {
         didSet {
-            guard var weather = weather else { return }
+            guard let weather = weather else { return }
             locationName.text = weather.locationName
             weatherText.text = weather.weatherTxt
             weahterIcon.image = weather.weatherIcon
