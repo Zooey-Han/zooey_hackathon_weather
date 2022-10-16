@@ -136,19 +136,6 @@ extension FirstViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
         
         cell.weather = weatherListManager[indexPath.row]
-//        cell.locationName.text = weatherListManager[indexPath.row].locationName
-//        cell.weatherText.text = weatherListManager[indexPath.row].weatherTxt
-//        cell.weahterIcon.image = weatherListManager[indexPath.row].weatherIcon
-//        cell.temIcon.image = weatherListManager[indexPath.row].temIcon
-//        cell.temText.text = weatherListManager[indexPath.row].temperature
-//        cell.humidyIcon.image = weatherListManager[indexPath.row].humidityIcon
-//        cell.humidyText.text = weatherListManager[indexPath.row].humidity
-//        cell.highIcon.image = weatherListManager[indexPath.row].highIcon
-//        cell.highTemText.text = weatherListManager[indexPath.row].highTem
-//        cell.lowIcon.image = weatherListManager[indexPath.row].lowIcon
-//        cell.lowTemText.text = weatherListManager[indexPath.row].lowTem
-//        cell.weatherDetail.text = weatherListManager[indexPath.row].detail
-       
         return cell
     }
 }
@@ -164,9 +151,9 @@ extension FirstViewController {
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
             // 그룹 사이즈
-            let grouSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
             // 그룹을 몇 개 보여줄지
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: grouSize, subitem: item, count: 1)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
             // 섹션 설정
             let section = NSCollectionLayoutSection(group: group)
             section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)

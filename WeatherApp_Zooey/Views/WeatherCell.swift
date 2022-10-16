@@ -8,9 +8,7 @@
 import UIKit
 
 class WeatherCell: UICollectionViewCell {
-    
-    static let id = "WeatherCell"
-    
+    // MARK: - 날씨 컬렉션셀 구현
     var weather: Weather? {
         didSet {
             guard let weather = weather else { return }
