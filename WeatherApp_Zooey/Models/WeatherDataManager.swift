@@ -22,10 +22,9 @@ final class WeatherDataManager: UIViewController {
             Weather(locationName: "시드니", weatherIcon: UIImage(named: "돌풍"), humidityIcon: UIImage(named: "습도"), weatherTxt: "바람 많음", temIcon: UIImage(named: "온도"), highIcon: UIImage(named: "최고"), lowIcon: UIImage(named: "최저"), temperature: "현재 15°", humidity: "습도 52%", highTem: "최고 20°", lowTem: "최저 12°", detail: "날씨가 흐리다고 기분까지 흐려지지 마세요 🍃")
         ]
     }
+    
     // 리스트 얻기
     func getWeatherList() -> [Weather] {
-        // 여기에 리스트가 변하면 .count도 변하게!
-        // collectionview.reoadData()
         return weatherList
     }
     

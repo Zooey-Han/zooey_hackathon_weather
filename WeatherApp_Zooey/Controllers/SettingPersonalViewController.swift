@@ -41,7 +41,7 @@ final class SettingPersonalViewController: UIViewController {
     
     
     // MARK: - 네비게이션바 버튼 설정
-    @objc func backBotton() {
+    @objc func backBottonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     

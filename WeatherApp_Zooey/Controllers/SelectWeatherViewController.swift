@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol SelectDelegate {
+    func didTapChoice(name: [String])
+}
+
 final class SelectWeatherViewController: UIViewController {
     
     var selecListManager = SelectListManager()
+    
+    var selectionDelegate: SelectDelegate!
     
     // MARK: - 컬렉션뷰
     private var collectionView : UICollectionView = {
@@ -19,10 +25,10 @@ final class SelectWeatherViewController: UIViewController {
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
- 
+    
     // MARK: - 서치바
     let serchController = UISearchController(searchResultsController: nil)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -32,6 +38,12 @@ final class SelectWeatherViewController: UIViewController {
         navigationItem.searchController = serchController
         setupSerchBar()
     }
+    // 화면에 다시 진입할때마다 리로드
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
+    
     // MARK: - 기본 화면 셋팅
     func makeUI() {
         view.backgroundColor = .white
@@ -68,21 +80,26 @@ final class SelectWeatherViewController: UIViewController {
     // MARK: - 서치바 셋팅
     func setupSerchBar() {
         let serchController = UISearchController()
-        //serchController.searchBar.delegate = self
+        serchController.searchBar.delegate = self
         serchController.searchBar.placeholder = "지금, 날씨가 궁금한 곳은?"
     }
-
+    
     // MARK: - 네비게이션바 버튼 설정
-    @objc func backBotton() {
+    @objc func backBottonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @objc func selectButtonTapped() {
+    }
+    
+    
 }
 
 // MARK: - 컬렉션뷰 확장
 extension SelectWeatherViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+    }
 }
 
 extension SelectWeatherViewController: UICollectionViewDataSource {
@@ -95,6 +112,8 @@ extension SelectWeatherViewController: UICollectionViewDataSource {
         cell.locationName.text = selecListManager[indexPath.row].locationName
         cell.weahterIcon.image = selecListManager[indexPath.row].weatherIcon
         cell.layer.cornerRadius = 20
+        cell.locationName.tag = indexPath.row
+        
         return cell
     }
 }
@@ -104,6 +123,7 @@ extension SelectWeatherViewController {
     fileprivate func compositonLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex: Int, layoutEnviroment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            
             // 아이템 사이즈
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2), heightDimension: .absolute(100))
             // 아이템을 몇 개 보여줄지
@@ -124,6 +144,15 @@ extension SelectWeatherViewController {
     }
 }
 
+
+
+
+// MARK: - 서치바 확장
+extension SelectWeatherViewController: UISearchBarDelegate {
+    func serarchBar(_ searchBar: UISearchBar, textDidChage seacrchText: String) {
+        
+    }
+}
 
 
 

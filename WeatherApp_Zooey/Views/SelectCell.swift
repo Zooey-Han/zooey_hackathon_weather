@@ -24,6 +24,15 @@ class SelectCell: UICollectionViewCell {
         return icon
     }()
     
+    let button: UIButton = {
+       let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.backgroundColor = .black
+        btn.layer.cornerRadius = 20
+        btn.backgroundColor = #colorLiteral(red: 0.8793388009, green: 0.7789234519, blue: 1, alpha: 1)
+        return btn
+    }()
+    
     let stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .horizontal
@@ -37,7 +46,7 @@ class SelectCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSackView()
-        self.backgroundColor = #colorLiteral(red: 0.8793388009, green: 0.7789234519, blue: 1, alpha: 1)
+        //self.backgroundColor = #colorLiteral(red: 0.8793388009, green: 0.7789234519, blue: 1, alpha: 1)
     }
     
     required init?(coder: NSCoder) {
@@ -46,17 +55,18 @@ class SelectCell: UICollectionViewCell {
     
     // MARK: - 화면에 보여지는 순서
     func setupSackView() {
+        self.addSubview(button)
         self.addSubview(stackView)
         stackView.addArrangedSubview(weahterIcon)
         stackView.addArrangedSubview(locationName)
     }
     
-    // MARK: - 오토레이아웃
     override func updateConstraints() {
         setConstraints()
         super.updateConstraints()
     }
     
+    // MARK: - 오토레이아웃
     func setConstraints() {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
@@ -70,6 +80,16 @@ class SelectCell: UICollectionViewCell {
             weahterIcon.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
 //            weahterIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -70),
 //            weahterIcon.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+//            button.heightAnchor.constraint(equalToConstant: 30),
+//            button.widthAnchor.constraint(equalToConstant: 30),
+            button.topAnchor.constraint(equalTo: self.topAnchor),
+            button.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            
         ])
     }
 }

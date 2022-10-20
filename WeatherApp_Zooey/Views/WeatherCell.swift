@@ -326,4 +326,8 @@ class WeatherCell: UICollectionViewCell {
             weatherDetail.topAnchor.constraint(equalTo: stackView7.bottomAnchor, constant: 40)
         ])
     }
+    
+    func confiure(_ item: Weather) {
+        
+    }
 }

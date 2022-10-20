@@ -45,7 +45,7 @@ final class LocationSetViewController: UIViewController {
         title = "위치 사용"
         locationLabel.layer.cornerRadius = 10
         locationLabel.layer.masksToBounds = true
-        toggledswitch.addTarget(self, action: #selector(toggleBotton), for: .valueChanged)
+        toggledswitch.addTarget(self, action: #selector(toggleBottonTapped), for: .valueChanged)
     }
     
     // MARK: - 위치 잡기
@@ -77,7 +77,7 @@ final class LocationSetViewController: UIViewController {
     }
     
     // MARK: - 토글 버튼 설정
-    @objc func toggleBotton() {
+    @objc func toggleBottonTapped() {
         if self.toggledswitch.isOn {
             self.toggledswitch.setOn(false, animated: true)
             let alert = UIAlertController(title: "위치 사용", message: "위치사용을 허용하시겠습니까?", preferredStyle: .alert)
@@ -111,7 +111,7 @@ final class LocationSetViewController: UIViewController {
     
     
     // MARK: - 네비게이션바 버튼 설정
-    @objc func backBotton() {
+    @objc func backBottonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
 }

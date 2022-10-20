@@ -7,7 +7,7 @@
 
 import UIKit
 // MARK: - 날씨 구조
-struct Weather {
+struct Weather: Hashable {
     var locationName: String
     var weatherIcon: UIImage?
     var humidityIcon: UIImage?
@@ -21,3 +21,4 @@ struct Weather {
     var lowTem: String
     var detail: String
 }
+

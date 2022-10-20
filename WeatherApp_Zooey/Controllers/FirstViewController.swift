@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class FirstViewController: UIViewController {
+final class FirstViewController: UIViewController,SelectDelegate {
     
     var weatherListManager = WeatherDataManager()
-
+    
     // MARK: - 컬렉션뷰
     private var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -65,11 +65,11 @@ final class FirstViewController: UIViewController {
         
         // 백버튼 커스텀
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-            self.navigationItem.backBarButtonItem = backBarButtonItem
+        self.navigationItem.backBarButtonItem = backBarButtonItem
         
         // 버튼
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addWeatherTapped))
-                
+        
         let line = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style:.plain, target: self, action: #selector(lineWeatherTapped))
         
         // 버튼 한줄로 묶어줌
@@ -91,40 +91,29 @@ final class FirstViewController: UIViewController {
     
     // MARK: - 네비게이션바 버튼 설정
     @objc func addWeatherTapped() {
-            print("addWeatherTapped")
+        print("addWeatherTapped")
         // 화면 전환
         let vc = SelectWeatherViewController()
         self.navigationController?.pushViewController(vc, animated: true)
         //전화면으로 돌아가는 버튼
         //self.navigationController?.popViewController(animated: true)
+        vc.selectionDelegate = self
     }
     @objc func lineWeatherTapped() {
-            print("lineWeatherTapped")
+        print("lineWeatherTapped")
         let vc = SettingPersonalViewController()
         self.navigationController?.pushViewController(vc, animated: true)
         //self.navigationController?.popViewController(animated: true)
     }
+    
 }
 
 // MARK: - 컬렉션뷰 확장
-// 셀 사이즈
-extension FirstViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.bounds.size
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return .zero
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return .zero
-    }
-}
 extension FirstViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+        
+    }
 }
 
 extension FirstViewController: UICollectionViewDataSource {
@@ -163,3 +152,4 @@ extension FirstViewController {
         return layout
     }
 }
+

@@ -11,6 +11,7 @@ import UIKit
 final class SelectListManager: UIViewController {
     
     private var selectList: [Select] = []
+    var deSelectList: [Select] = []
     
     func makeSelectData() {
         selectList = [
@@ -22,6 +23,7 @@ final class SelectListManager: UIViewController {
             Select(locationName: "시드니", weatherIcon: UIImage(named: "돌풍"))
         ]
     }
+        
     // 리스트 얻기
     func getSelectList() -> [Select] {
         // 여기에 리스트가 변하면 .count도 변하게!
