@@ -25,14 +25,11 @@ final class AnswerSetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         makeUI()
-        
     }
     
     // MARK: - UI 셋팅
     func makeUI() {
-        
         view.backgroundColor = .systemGray6
         title = "문의하기"
         view.addSubview(detailLabel)

@@ -10,7 +10,7 @@ import UIKit
 // MARK: - 날씨 데이터 구성
 final class WeatherDataManager: UIViewController {
     
-    private var weatherList: [Weather] = []
+    var weatherList: [Weather] = []
     
     func makeWeatherDatas() {
         weatherList = [

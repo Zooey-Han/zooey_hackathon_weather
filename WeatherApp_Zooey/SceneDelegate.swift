@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // MARK: - 네비게이션 바 설정
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let weatherVC = FirstViewController()
+        let weatherVC = SelectWeatherViewController()
         let navigationContoller = UINavigationController(rootViewController: weatherVC)
         
         window?.rootViewController = navigationContoller

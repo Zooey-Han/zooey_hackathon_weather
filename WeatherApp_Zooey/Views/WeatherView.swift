@@ -1,29 +1,28 @@
 //
-//  WeatherCell.swift
+//  WeatherView.swift
 //  WeatherApp_Zooey
 //
-//  Created by zooey on 2022/10/16.
+//  Created by zooey on 2022/10/23.
 //
 
 import UIKit
 
-class WeatherCell: UICollectionViewCell {
-    // MARK: - 날씨 컬렉션셀 구현
+class WeatherView: UIView {
+
     var weather: Weather? {
         didSet {
-            guard let weather = weather else { return }
-            locationName.text = weather.locationName
-            weatherText.text = weather.weatherTxt
-            weahterIcon.image = weather.weatherIcon
-            temIcon.image = weather.temIcon
-            temText.text = weather.temperature
-            humidyIcon.image = weather.humidityIcon
-            humidyText.text = weather.humidity
-            highIcon.image = weather.highIcon
-            highTemText.text = weather.highTem
-            lowIcon.image = weather.lowIcon
-            lowTemText.text = weather.lowTem
-            weatherDetail.text = weather.detail
+            locationName.text = weather?.locationName
+            weatherText.text = weather?.weatherTxt
+            weahterIcon.image = weather?.weatherIcon
+            temIcon.image = weather?.temIcon
+            temText.text = weather?.temperature
+            humidyIcon.image = weather?.humidityIcon
+            humidyText.text = weather?.humidity
+            highIcon.image = weather?.highIcon
+            highTemText.text = weather?.highTem
+            lowIcon.image = weather?.lowIcon
+            lowTemText.text = weather?.lowTem
+            weatherDetail.text = weather?.detail
         }
     }
     
@@ -197,6 +196,7 @@ class WeatherCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSackView()
+        backgroundColor = #colorLiteral(red: 0.7882352941, green: 0.8524353391, blue: 1, alpha: 1)
     }
     
     required init?(coder: NSCoder) {
@@ -241,7 +241,7 @@ class WeatherCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
-            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20)
+            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 120)
         ])
         
         NSLayoutConstraint.activate([
@@ -255,8 +255,7 @@ class WeatherCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             temIcon.heightAnchor.constraint(equalToConstant: 30),
             temIcon.widthAnchor.constraint(equalToConstant: 30),
-            temIcon.topAnchor.constraint(equalTo: stackView2.topAnchor, constant: 0),
-            //temIcon.leadingAnchor.constraint(equalTo: stackView2.leadingAnchor, constant: 0)
+            temIcon.topAnchor.constraint(equalTo: stackView2.topAnchor, constant: 0)
         ])
         
         NSLayoutConstraint.activate([
@@ -280,13 +279,11 @@ class WeatherCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             stackView2.heightAnchor.constraint(equalToConstant: 30),
             stackView2.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
-            //stackView2.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
             stackView2.topAnchor.constraint(equalTo: weahterIcon.bottomAnchor, constant: 70)
         ])
         
         NSLayoutConstraint.activate([
             stackView3.heightAnchor.constraint(equalToConstant: 30),
-            //stackView3.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),
             stackView3.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             stackView3.topAnchor.constraint(equalTo: weahterIcon.bottomAnchor, constant: 70)
         ])
@@ -294,13 +291,11 @@ class WeatherCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             stackView4.heightAnchor.constraint(equalToConstant: 30),
             stackView4.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
-            //stackView4.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50),
             stackView4.topAnchor.constraint(equalTo: stackView2.bottomAnchor, constant: 15)
         ])
         
         NSLayoutConstraint.activate([
             stackView5.heightAnchor.constraint(equalToConstant: 30),
-            //stackView5.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),
             stackView5.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             stackView5.topAnchor.constraint(equalTo: stackView2.bottomAnchor, constant: 15)
         ])
@@ -325,9 +320,5 @@ class WeatherCell: UICollectionViewCell {
             weatherDetail.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             weatherDetail.topAnchor.constraint(equalTo: stackView7.bottomAnchor, constant: 40)
         ])
-    }
-    
-    func confiure(_ item: Weather) {
-        
     }
 }

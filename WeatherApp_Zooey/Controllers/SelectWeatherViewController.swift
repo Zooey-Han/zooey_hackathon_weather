@@ -7,152 +7,150 @@
 
 import UIKit
 
-protocol SelectDelegate {
-    func didTapChoice(name: [String])
-}
-
 final class SelectWeatherViewController: UIViewController {
     
-    var selecListManager = SelectListManager()
+    var weatherListManager = WeatherDataManager()
+    let test: Int = 0
     
-    var selectionDelegate: SelectDelegate!
-    
-    // MARK: - 컬렉션뷰
-    private var collectionView : UICollectionView = {
-        let layout = UICollectionViewLayout()
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .clear
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        return cv
+    // MARK: - 테이블뷰
+    private var tableView : UITableView = {
+        let tv = UITableView(frame: .zero, style: .plain)
+        tv.backgroundColor = .clear
+        tv.separatorStyle = .none
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
     }()
-    
-    // MARK: - 서치바
-    let serchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
+        setuptableView()
         setupSelectionData()
         collectionUI()
         makeUI()
-        navigationItem.searchController = serchController
-        setupSerchBar()
-    }
-    // 화면에 다시 진입할때마다 리로드
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        collectionView.reloadData()
+        setupNaviBar()
     }
     
     // MARK: - 기본 화면 셋팅
     func makeUI() {
+        let vc = FirstViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false, completion: nil)
         view.backgroundColor = .white
-        title = "지역 설정"
     }
     
     // MARK: - 데이터 받아오기
     func setupSelectionData() {
-        selecListManager.makeSelectData()
+        weatherListManager.makeWeatherDatas()
     }
     
-    // MARK: - 컬렉션뷰 셋팅
-    func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(SelectCell.self, forCellWithReuseIdentifier: "SelectCell")
-        collectionView.collectionViewLayout = compositonLayout()
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    // MARK: - 테이블뷰 셋팅
+    func setuptableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 120
+        tableView.register(SelectCell.self, forCellReuseIdentifier: "SelectCell")
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
-    // MARK: - 컬렉션뷰 레이아웃
+    // MARK: - 테이블뷰 레이아웃
     func collectionUI() {
-        view.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
     
-    // MARK: - 서치바 셋팅
-    func setupSerchBar() {
-        let serchController = UISearchController()
-        serchController.searchBar.delegate = self
-        serchController.searchBar.placeholder = "지금, 날씨가 궁금한 곳은?"
+    // MARK: - 네비게이션바 설정
+    func setupNaviBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .clear
+        appearance.shadowColor = .clear
+        
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        // 백버튼 커스텀
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
+        // 버튼
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addWeatherTapped))
+        
+        let line = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style:.plain, target: self, action: #selector(lineWeatherTapped))
+        
+        // 버튼 한줄로 묶어줌
+        navigationItem.rightBarButtonItems = [line, add]
     }
     
     // MARK: - 네비게이션바 버튼 설정
-    @objc func backBottonTapped() {
-        self.navigationController?.popViewController(animated: true)
+    @objc func addWeatherTapped() {
+        // 화면 전환
+        let vc = SearchViewController()
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func selectButtonTapped() {
-    }
-    
-    
-}
-
-// MARK: - 컬렉션뷰 확장
-extension SelectWeatherViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
+    @objc func lineWeatherTapped() {
+        let vc = SettingPersonalViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-extension SelectWeatherViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selecListManager.getSelectList().count
-    }
+// MARK: - 테이블뷰 확장
+extension SelectWeatherViewController: UITableViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectCell", for: indexPath) as! SelectCell
-        cell.locationName.text = selecListManager[indexPath.row].locationName
-        cell.weahterIcon.image = selecListManager[indexPath.row].weatherIcon
-        cell.layer.cornerRadius = 20
-        cell.locationName.tag = indexPath.row
-        
-        return cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let weatherVC = WeatherViewController()
+        let array = weatherListManager.getWeatherList()
+        weatherVC.weather = array[indexPath.row]
+        navigationController?.pushViewController(weatherVC, animated: true)
     }
 }
 
-// MARK: - 컴포지션레이아웃 설정
-extension SelectWeatherViewController {
-    fileprivate func compositonLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout {
-            (sectionIndex: Int, layoutEnviroment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-            // 아이템 사이즈
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2), heightDimension: .absolute(100))
-            // 아이템을 몇 개 보여줄지
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-            // 그룹 사이즈
-            let groupHeight = NSCollectionLayoutDimension.fractionalWidth(1/3)
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: groupHeight)
-            // 그룹을 몇 개 보여줄지
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-            // 섹션 설정
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
-            //section.orthogonalScrollingBehavior = .groupPaging
-            return section
+extension SelectWeatherViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return weatherListManager.getWeatherList().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectCell", for: indexPath) as! SelectCell
+                    cell.locationName.text = weatherListManager[indexPath.row].locationName
+                    cell.weahterIcon.image = weatherListManager[indexPath.row].weatherIcon
+                    cell.layer.cornerRadius = 20
+                    cell.locationName.tag = indexPath.row
+                    return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            weatherListManager.weatherList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         }
-        return layout
     }
 }
 
-
-
-
-// MARK: - 서치바 확장
-extension SelectWeatherViewController: UISearchBarDelegate {
-    func serarchBar(_ searchBar: UISearchBar, textDidChage seacrchText: String) {
-        
+extension SelectWeatherViewController: DataListDelegateProtocol {
+    func sendDataToWeatherController(data: String) {
+//        selectListManager.weatherList.locationName = data
+//        if !locations.contains(data){
+//            locations.append(data)
+//            let weatherService = WeatherService()
+//            weatherService.fetchWeather(locationName: data) { response in
+//                self.weatherInfoList.append(response)
+//                UserDefaults.standard.set(self.cities, forKey: "cities")
+//                self.tableView.reloadData()
     }
+    
+    
 }
-
-
 

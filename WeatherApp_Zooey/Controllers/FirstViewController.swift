@@ -1,155 +1,104 @@
 //
-//  FirstViewController.swift
+//  ViewController.swift
 //  WeatherApp_Zooey
 //
-//  Created by zooey on 2022/10/15.
+//  Created by zooey on 2022/10/08.
 //
 
 import UIKit
+import Lottie
 
-final class FirstViewController: UIViewController,SelectDelegate {
+final class FirstViewController: UIViewController {
+    // MARK: - 애니메이션 효과
+    private let animationView: AnimationView = {
+        let animView = AnimationView(name: "fullscreen")
+        let screenSize: CGRect = UIScreen.main.bounds
+        animView.frame = CGRect(x:0, y:0, width: screenSize.width, height: screenSize.height)
+        animView.contentMode = .scaleToFill
+        return animView
+    }()
     
-    var weatherListManager = WeatherDataManager()
+    // MARK: - 다음에 띄울 화면
+    private let popView: UILabel = {
+        let label = UILabel()
+        label.text = """
+                        웨더 앱 이용을 위해
+                        접근 권한 허용이 필요합니다.
+                    """
+        label.font = UIFont.boldSystemFont(ofSize: 28)
+        label.textColor = .black
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        return label
+    }()
     
-    // MARK: - 컬렉션뷰
-    private var collectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .clear
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        return cv
+    private let popView2: UILabel = {
+        let label = UILabel()
+        label.text = """
+                            위치사용(선택)
+                            현재 위치를 중심으로 날씨 정보 이용
+                            ※ 동의하지 않아도 앱 이용은 가능합니다.
+                    """
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = .black
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    // 버튼
+    private let pressedButton: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.backgroundColor = .black
+        btn.layer.cornerRadius = 5
+        btn.clipsToBounds = true
+        btn.layer.borderWidth = 1
+        btn.setTitle("확 인", for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        btn.titleLabel?.textColor = .white
+        btn.addTarget(self, action: #selector(pressedBtnTapped), for: .touchUpInside)
+        return btn
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeUI()
-        setupNaviBar()
-        collectionUI()
-        setupCollectionView()
-        setupWeatherData()
-    }
-    
-    // MARK: - UI셋팅
-    func makeUI() {
-        // 배경 및 보여질 화면 설정
-        let vc = ViewController()
-        view.backgroundColor = #colorLiteral(red: 0.7882352941, green: 0.8524353391, blue: 1, alpha: 1)
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: false, completion: nil)
-    }
-    
-    // MARK: - Data 불러오기
-    func setupWeatherData() {
-        weatherListManager.makeWeatherDatas()
-    }
-    
-    // MARK: - 컬렉션뷰 셋팅
-    func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(WeatherCell.self, forCellWithReuseIdentifier: "WeatherCell")
-        collectionView.collectionViewLayout = compositonLayout()
-    }
-    
-    // MARK: - 네비게이션바 설정
-    func setupNaviBar() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .clear
-        appearance.shadowColor = .clear
-        
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        // 백버튼 커스텀
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        
-        // 버튼
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addWeatherTapped))
-        
-        let line = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style:.plain, target: self, action: #selector(lineWeatherTapped))
-        
-        // 버튼 한줄로 묶어줌
-        navigationItem.rightBarButtonItems = [line, add]
-    }
-    
-    // MARK: - 컬렉션뷰 레이아웃
-    func collectionUI() {
-        view.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            collectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-    }
-    
-    // MARK: - 네비게이션바 버튼 설정
-    @objc func addWeatherTapped() {
-        print("addWeatherTapped")
-        // 화면 전환
-        let vc = SelectWeatherViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-        //전화면으로 돌아가는 버튼
-        //self.navigationController?.popViewController(animated: true)
-        vc.selectionDelegate = self
-    }
-    @objc func lineWeatherTapped() {
-        print("lineWeatherTapped")
-        let vc = SettingPersonalViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-        //self.navigationController?.popViewController(animated: true)
-    }
-    
-}
-
-// MARK: - 컬렉션뷰 확장
-extension FirstViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
-        
-    }
-}
-
-extension FirstViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return weatherListManager.getWeatherList().count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
-        
-        cell.weather = weatherListManager[indexPath.row]
-        return cell
-    }
-}
-
-// MARK: - 컴포지션레이아웃 설정
-extension FirstViewController {
-    fileprivate func compositonLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout {
-            (sectionIndex: Int, layoutEnviroment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            // 아이템 사이즈
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-            // 아이템을 몇 개 보여줄지
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-            // 그룹 사이즈
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-            // 그룹을 몇 개 보여줄지
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-            // 섹션 설정
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-            section.orthogonalScrollingBehavior = .groupPaging
-            return section
+        view.backgroundColor = .white
+        // MARK: - 애니메이션 효과 후 다음화면 보여주기
+        view.addSubview(animationView)
+        animationView.center = view.center
+        animationView.play{ (finish) in
+            print("Animation finished!")
+            self.animationView.removeFromSuperview()
+            
+            self.makeUI()
         }
-        return layout
+    }
+    
+    // MARK: - UI 셋팅
+    func makeUI() {
+        view.addSubview(popView)
+        popView.translatesAutoresizingMaskIntoConstraints = false
+        popView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        popView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        popView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
+        
+        view.addSubview(popView2)
+        popView2.translatesAutoresizingMaskIntoConstraints = false
+        popView2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        popView2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        popView2.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
+        
+        view.addSubview(pressedButton)
+        pressedButton.translatesAutoresizingMaskIntoConstraints = false
+        pressedButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        pressedButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        pressedButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
+        pressedButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+    }
+    
+    // MARK: - 버튼 누르면 다음 화면 이동
+    @objc func pressedBtnTapped() {
+        dismiss(animated: true, completion: nil)
     }
 }
-
