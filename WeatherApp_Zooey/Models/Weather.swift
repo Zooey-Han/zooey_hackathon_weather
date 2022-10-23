@@ -8,7 +8,6 @@
 import UIKit
 
 protocol WeatherDelegate: AnyObject {
-    //func addNewWeather(_ weather: Weather)
     func update(weather: String)
 }
 

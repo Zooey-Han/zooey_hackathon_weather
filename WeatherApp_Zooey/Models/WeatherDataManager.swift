@@ -29,11 +29,6 @@ final class WeatherDataManager: UIViewController {
         return weatherList
     }
     
-    // 새로운 날씨 만들기
-    func makeWeather(location: String, _ weather: Weather) {
-        weatherList.append(weather)
-    }
-    
     // 특정 멤버 얻기
     subscript(index: Int) -> Weather {
         get {
