@@ -13,6 +13,7 @@ final class WeatherDataManager: UIViewController {
     var weatherList: [Weather] = []
     
     func makeWeatherDatas() {
+        
         weatherList = [
             Weather(locationName: "서 울", weatherIcon: UIImage(named: "맑음"), humidityIcon: UIImage(named: "습도"), weatherTxt: "맑 음", temIcon: UIImage(named: "온도"), highIcon: UIImage(named: "최고"), lowIcon: UIImage(named: "최저"), temperature: "현재 11°", humidity: "습도 62%", highTem: "최고 21°", lowTem: "최저 10°", detail: "파란하늘이 내려앉은 듯 화창한 날씨입니다 ☀️"),
             Weather(locationName: "뉴 욕", weatherIcon: UIImage(named: "비"), humidityIcon: UIImage(named: "습도"), weatherTxt: "비", temIcon: UIImage(named: "온도"), highIcon: UIImage(named: "최고"), lowIcon: UIImage(named: "최저"), temperature: "9°", humidity: "습도 89%", highTem: "최고 15°", lowTem: "최저 6°", detail: "오늘은 창밖으로 빗소리가 들리겠어요 ☂️"),
@@ -29,7 +30,7 @@ final class WeatherDataManager: UIViewController {
     }
     
     // 새로운 날씨 만들기
-    func makeWeather(_ weather: Weather) {
+    func makeWeather(location: String, _ weather: Weather) {
         weatherList.append(weather)
     }
     

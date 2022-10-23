@@ -9,7 +9,9 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    var delegate: DataListDelegateProtocol?
+    weak var delegate: WeatherDelegate?
+    
+    var weather: Weather?
 
     // MARK: - 검색필드
     private lazy var textField: UITextField = {
@@ -65,16 +67,13 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         textField.delegate = self
+        WeatherView().weather = weather
     }
     
     
     // MARK: - 지역선택시 데이터 넘겨주기
-    @objc func sendDataAndPop(data:String){
-        let dataToBeSent = data
-        //self.delegate?.sendDataToFirstViewController(data: dataToBeSent )
-//        let index = navigationController!.viewControllers.count - 2
-//        let vc = navigationController?.viewControllers[index] as! SearchViewController
-        
+    @objc func sendDataAndPop(location: String){
+        delegate?.update(weather: location)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -102,11 +101,10 @@ class SearchViewController: UIViewController {
 // MARK: - 델리게이트
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder();
-        return true;
+        textField.resignFirstResponder()
+        return true
     }
 }
-
 
 // MARK: - 테이블뷰 확장
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -121,14 +119,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        sendDataAndPop(data: locations[indexPath.row])
+        sendDataAndPop(location: locations[indexPath.row])
     }
-}
-
-// MARK: - 프로토콜
-protocol DataListDelegateProtocol
-{
-    func sendDataToWeatherController(data:String)
 }
 
 

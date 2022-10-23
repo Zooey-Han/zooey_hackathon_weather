@@ -9,6 +9,6 @@ import Foundation
 
 struct Location {
     static let allLocations = [
-    "서울", "뉴욕", "도쿄","런던", "파리", "시드니"
+    "서 울", "뉴 욕", "도 쿄","런 던", "파 리", "시드니"
     ]
 }

@@ -6,8 +6,14 @@
 //
 
 import UIKit
+
+protocol WeatherDelegate: AnyObject {
+    //func addNewWeather(_ weather: Weather)
+    func update(weather: String)
+}
+
 // MARK: - 날씨 구조
-struct Weather: Hashable {
+struct Weather {
     var locationName: String
     var weatherIcon: UIImage?
     var humidityIcon: UIImage?
@@ -21,4 +27,5 @@ struct Weather: Hashable {
     var lowTem: String
     var detail: String
 }
+
 

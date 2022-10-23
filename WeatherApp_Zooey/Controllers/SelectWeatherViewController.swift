@@ -10,7 +10,6 @@ import UIKit
 final class SelectWeatherViewController: UIViewController {
     
     var weatherListManager = WeatherDataManager()
-    let test: Int = 0
     
     // MARK: - 테이블뷰
     private var tableView : UITableView = {
@@ -25,7 +24,7 @@ final class SelectWeatherViewController: UIViewController {
         super.viewDidLoad()
         setuptableView()
         setupSelectionData()
-        collectionUI()
+        tableViewUI()
         makeUI()
         setupNaviBar()
     }
@@ -53,7 +52,7 @@ final class SelectWeatherViewController: UIViewController {
     }
     
     // MARK: - 테이블뷰 레이아웃
-    func collectionUI() {
+    func tableViewUI() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -93,9 +92,9 @@ final class SelectWeatherViewController: UIViewController {
     // MARK: - 네비게이션바 버튼 설정
     @objc func addWeatherTapped() {
         // 화면 전환
-        let vc = SearchViewController()
-        vc.delegate = self
-        self.navigationController?.pushViewController(vc, animated: true)
+        let searchVC = SearchViewController()
+        searchVC.delegate = self
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
     @objc func lineWeatherTapped() {
@@ -123,11 +122,11 @@ extension SelectWeatherViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectCell", for: indexPath) as! SelectCell
-                    cell.locationName.text = weatherListManager[indexPath.row].locationName
-                    cell.weahterIcon.image = weatherListManager[indexPath.row].weatherIcon
-                    cell.layer.cornerRadius = 20
-                    cell.locationName.tag = indexPath.row
-                    return cell
+        cell.locationName.text = weatherListManager[indexPath.row].locationName
+        cell.weahterIcon.image = weatherListManager[indexPath.row].weatherIcon
+        cell.layer.cornerRadius = 20
+        cell.locationName.tag = indexPath.row
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -139,18 +138,23 @@ extension SelectWeatherViewController: UITableViewDataSource {
     }
 }
 
-extension SelectWeatherViewController: DataListDelegateProtocol {
-    func sendDataToWeatherController(data: String) {
-//        selectListManager.weatherList.locationName = data
-//        if !locations.contains(data){
-//            locations.append(data)
-//            let weatherService = WeatherService()
-//            weatherService.fetchWeather(locationName: data) { response in
-//                self.weatherInfoList.append(response)
-//                UserDefaults.standard.set(self.cities, forKey: "cities")
-//                self.tableView.reloadData()
+extension SelectWeatherViewController: WeatherDelegate {
+    func update(weather: String) {
+            
+            if weather == "서 울" {
+                weatherListManager.weatherList.append(weatherListManager.weatherList[0])
+            } else if weather == "뉴 욕" {
+                weatherListManager.weatherList.append(weatherListManager.weatherList[1])
+            } else if weather == "도 쿄" {
+                weatherListManager.weatherList.append(weatherListManager.weatherList[2])
+            } else if weather == "런 던" {
+                weatherListManager.weatherList.append(weatherListManager.weatherList[3])
+            } else if weather == "파 리" {
+                weatherListManager.weatherList.append(weatherListManager.weatherList[4])
+            } else if weather == "시드니" {
+                weatherListManager.weatherList.append(weatherListManager.weatherList[5])
+            }
+        
+           tableView.reloadData()
     }
-    
-    
 }
-

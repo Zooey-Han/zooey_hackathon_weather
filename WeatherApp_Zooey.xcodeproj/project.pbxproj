@@ -13,17 +13,13 @@
 		63166F6F28FACAF700609E99 /* PesonalSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63166F6E28FACAF700609E99 /* PesonalSetViewController.swift */; };
 		63166F7328FACBAE00609E99 /* AnswerSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63166F7228FACBAE00609E99 /* AnswerSetViewController.swift */; };
 		63166F7528FACBB900609E99 /* InfoSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63166F7428FACBB900609E99 /* InfoSetViewController.swift */; };
-		63166F7928FB11A400609E99 /* 113873-clouds.json in Resources */ = {isa = PBXBuildFile; fileRef = 63166F7828FB11A400609E99 /* 113873-clouds.json */; };
-		63166F7B28FB11AC00609E99 /* 10396-background-full-screen-train.json in Resources */ = {isa = PBXBuildFile; fileRef = 63166F7A28FB11AC00609E99 /* 10396-background-full-screen-train.json */; };
 		63166F8128FB1A2600609E99 /* fullscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 63166F8028FB1A2600609E99 /* fullscreen.json */; };
-		63166F8328FB1BF300609E99 /* 77378-sunset.json in Resources */ = {isa = PBXBuildFile; fileRef = 63166F8228FB1BF300609E99 /* 77378-sunset.json */; };
 		6331640128F12FF900885B83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331640028F12FF900885B83 /* AppDelegate.swift */; };
 		6331640328F12FF900885B83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331640228F12FF900885B83 /* SceneDelegate.swift */; };
 		6331640528F12FF900885B83 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331640428F12FF900885B83 /* FirstViewController.swift */; };
 		6331640A28F12FFA00885B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6331640928F12FFA00885B83 /* Assets.xcassets */; };
 		6331640D28F12FFA00885B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6331640B28F12FFA00885B83 /* LaunchScreen.storyboard */; };
 		6331642328F16CB300885B83 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6331642228F16CB300885B83 /* Lottie */; };
-		6331642B28F1721D00885B83 /* 10686-the-moon.json in Resources */ = {isa = PBXBuildFile; fileRef = 6331642A28F1721D00885B83 /* 10686-the-moon.json */; };
 		634EE97328FBA7890061F51C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634EE97228FBA7890061F51C /* Weather.swift */; };
 		634EE97528FBA7D50061F51C /* WeatherDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634EE97428FBA7D50061F51C /* WeatherDataManager.swift */; };
 		6352670E28FA79A800F5C0AA /* SelectWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6352670D28FA79A800F5C0AA /* SelectWeatherViewController.swift */; };
@@ -43,10 +39,7 @@
 		63166F6E28FACAF700609E99 /* PesonalSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesonalSetViewController.swift; sourceTree = "<group>"; };
 		63166F7228FACBAE00609E99 /* AnswerSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSetViewController.swift; sourceTree = "<group>"; };
 		63166F7428FACBB900609E99 /* InfoSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSetViewController.swift; sourceTree = "<group>"; };
-		63166F7828FB11A400609E99 /* 113873-clouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "113873-clouds.json"; sourceTree = "<group>"; };
-		63166F7A28FB11AC00609E99 /* 10396-background-full-screen-train.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "10396-background-full-screen-train.json"; sourceTree = "<group>"; };
 		63166F8028FB1A2600609E99 /* fullscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fullscreen.json; sourceTree = "<group>"; };
-		63166F8228FB1BF300609E99 /* 77378-sunset.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "77378-sunset.json"; sourceTree = "<group>"; };
 		633163FD28F12FF900885B83 /* WeatherApp_Zooey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp_Zooey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6331640028F12FF900885B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6331640228F12FF900885B83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +47,6 @@
 		6331640928F12FFA00885B83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6331640C28F12FFA00885B83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6331640E28F12FFA00885B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6331642A28F1721D00885B83 /* 10686-the-moon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "10686-the-moon.json"; sourceTree = "<group>"; };
 		634EE97228FBA7890061F51C /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		634EE97428FBA7D50061F51C /* WeatherDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataManager.swift; sourceTree = "<group>"; };
 		6352670D28FA79A800F5C0AA /* SelectWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWeatherViewController.swift; sourceTree = "<group>"; };
@@ -113,11 +105,7 @@
 		6331642028F1669F00885B83 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63166F7828FB11A400609E99 /* 113873-clouds.json */,
-				63166F7A28FB11AC00609E99 /* 10396-background-full-screen-train.json */,
 				63166F8028FB1A2600609E99 /* fullscreen.json */,
-				63166F8228FB1BF300609E99 /* 77378-sunset.json */,
-				6331642A28F1721D00885B83 /* 10686-the-moon.json */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -225,13 +213,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63166F8328FB1BF300609E99 /* 77378-sunset.json in Resources */,
-				6331642B28F1721D00885B83 /* 10686-the-moon.json in Resources */,
 				63166F8128FB1A2600609E99 /* fullscreen.json in Resources */,
-				63166F7B28FB11AC00609E99 /* 10396-background-full-screen-train.json in Resources */,
 				6331640D28F12FFA00885B83 /* LaunchScreen.storyboard in Resources */,
 				6331640A28F12FFA00885B83 /* Assets.xcassets in Resources */,
-				63166F7928FB11A400609E99 /* 113873-clouds.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
