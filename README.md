@@ -18,7 +18,5 @@
 - API 없이 데이터 묶음 이용해 만들어 기능 구현에 아쉬움이 남음
 - 해커톤이 끝나고도 아쉬웠던 부분에 대해 지속적으로 수정함
 - delegate 구현시 데이터가 중복으로 들어가는 부분이 생김
-<img width="433" alt="기본화면" src="https://user-images.githubusercontent.com/107897929/198329791-724d7541-3496-45fc-8cca-6f0ec076c69d.png" width="100"/>
-기본화면
-<img width="433" alt="상세화면" src="https://user-images.githubusercontent.com/107897929/198329804-bbf0bd58-b3aa-4c95-896d-e992e2e6a951.png" width="100"/>
-날씨 상세 화면
+<img width="433" alt="기본화면" src="https://user-images.githubusercontent.com/107897929/198329791-724d7541-3496-45fc-8cca-6f0ec076c69d.png"><img width="433" alt="상세화면" src="https://user-images.githubusercontent.com/107897929/198329804-bbf0bd58-b3aa-4c95-896d-e992e2e6a951.png">
+기본화면 / 날씨 상세화면
