@@ -22,3 +22,6 @@
 <img width="433" alt="기본화면" src="https://user-images.githubusercontent.com/107897929/198329791-724d7541-3496-45fc-8cca-6f0ec076c69d.png"> <img width="433" alt="상세화면" src="https://user-images.githubusercontent.com/107897929/198329804-bbf0bd58-b3aa-4c95-896d-e992e2e6a951.png">
 
 기본화면 / 날씨 상세화면
+
+https://user-images.githubusercontent.com/107897929/198333646-da6e0f49-f011-4192-9032-308da1869599.mov https://user-images.githubusercontent.com/107897929/198333926-21ea5029-92ea-4a0c-9765-4d1d29a20480.mov
+
