@@ -23,5 +23,3 @@
 
 기본화면 / 날씨 상세화면
 
-https://user-images.githubusercontent.com/107897929/198333646-da6e0f49-f011-4192-9032-308da1869599.mov https://user-images.githubusercontent.com/107897929/198333926-21ea5029-92ea-4a0c-9765-4d1d29a20480.mov
-
