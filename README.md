@@ -19,7 +19,7 @@
 - 해커톤이 끝나고도 아쉬웠던 부분에 대해 지속적으로 수정함
 - delegate 구현시 데이터가 중복으로 들어가는 부분이 생김
 
-<img alt="기본화면" src="https://user-images.githubusercontent.com/107897929/198329791-724d7541-3496-45fc-8cca-6f0ec076c69d.png"> <img alt="상세화면" src="https://user-images.githubusercontent.com/107897929/198329804-bbf0bd58-b3aa-4c95-896d-e992e2e6a951.png">
+<img alt="기본화면" src="https://user-images.githubusercontent.com/107897929/198329791-724d7541-3496-45fc-8cca-6f0ec076c69d.png width="200" height="400"/"> <img alt="상세화면" src="https://user-images.githubusercontent.com/107897929/198329804-bbf0bd58-b3aa-4c95-896d-e992e2e6a951.png width="200" height="400"/">
 
 기본화면 / 날씨 상세화면
 
